@@ -1,0 +1,40 @@
+.localized-button {
+    cursor: pointer;
+    &--hollow {
+        color: $bondBlue;
+        background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 2px, transparent 3px) 0% 0%/5px 5px
+                no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 2px, transparent 3px) 100% 0%/5px 5px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 2px, transparent 3px) 0% 100%/5px 5px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 2px, transparent 3px) 100% 100%/5px 5px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 4px) calc(100% - 10px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 10px) calc(100% - 4px) no-repeat,
+            linear-gradient(#0789ab 30%, #5710d5 60%);
+        border-radius: 5px;
+        padding: 2px;
+        box-sizing: content-box;
+    }
+    &--filled {
+        color: $white;
+        background-color: $jungleGreen;
+    }
+    &--small {
+        border-radius: size(1.5);
+        width: size(22);
+        padding: size(1) 0;
+    }
+    &--medium {
+        border-radius: size(2);
+        width: size(35);
+        padding: size(1.5) 0;
+    }
+    &--large {
+        border-radius: size(2);
+        width: size(50);
+        padding: size(2) 0;
+    }
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}

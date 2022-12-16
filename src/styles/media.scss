@@ -1,0 +1,39 @@
+$size: (
+    sm: 568,
+    md: 768,
+    lg: 992,
+    xl: 1280,
+);
+$minSize: (
+    sm: '(min-width: #{map-get($size, sm)}px)',
+    md: '(min-width: #{map-get($size, md)}px)',
+    lg: '(min-width: #{map-get($size, lg)}px)',
+    xl: '(min-width: #{map-get($size, xl)}px)',
+);
+$maxSize: (
+    xs: '(max-width: #{map-get($size, sm) - 1}px)',
+    sm: '(max-width: #{map-get($size, md) - 1}px)',
+    md: '(max-width: #{map-get($size, lg) - 1}px)',
+    lg: '(max-width: #{map-get($size, xl) - 1}px)',
+);
+$onlySize: (
+    sm: '(min-width: #{map-get($size, sm)}px) and (max-width: #{map-get($size, md) - 1}px)',
+    md: '(min-width: #{map-get($size, md)}px) and (max-width: #{map-get($size, lg) - 1}px)',
+    lg: '(min-width: #{map-get($size, lg)}px) and (max-width: #{map-get($size, xl) - 1}px)',
+);
+
+@mixin min($breaking-point) {
+    @media #{map-get($minSize, $breaking-point)} {
+        @content;
+    }
+}
+@mixin max($breaking-point) {
+    @media #{map-get($maxSize, $breaking-point)} {
+        @content;
+    }
+}
+@mixin only($breaking-point) {
+    @media #{map-get($onlySize, $breaking-point)} {
+        @content;
+    }
+}

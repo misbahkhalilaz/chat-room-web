@@ -1,0 +1,23 @@
+.backdrop {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $mediumIndex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba($grey, 0.1), rgba($grey, 0.1));
+    &--active {
+        display: flex;
+    }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .backdrop {
+        background-image: none;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+    }
+}

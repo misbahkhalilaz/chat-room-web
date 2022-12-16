@@ -1,0 +1,14 @@
+.localized-checkbox {
+    display: flex;
+    gap: size(3);
+    align-items: center;
+    user-select: none;
+
+    & > * {
+        cursor: pointer;
+    }
+
+    input {
+        transform: scale(1.4);
+    }
+}
