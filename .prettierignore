@@ -1,0 +1,22 @@
+# Build folders
+deploy
+
+dist
+
+.next
+
+public/assets
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# Static files
+static
+
+# workflows
+.github
+
+.history
+
+.husky
