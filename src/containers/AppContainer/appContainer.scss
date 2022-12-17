@@ -1,15 +1,25 @@
 .app-container {
     &__header {
-        padding: 40px;
-        background: rgb(4, 47, 31);background: rgb(0,0,0);
-        background: linear-gradient(333deg, rgba(0,0,0,1) 0%, rgba(161,166,156,1) 55%, rgba(9,6,6,1) 100%);
-        color: white;
+        padding: 28px 40px;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(333deg, rgba(0, 0, 0, 1) 0%, rgba(161, 166, 156, 1) 55%, rgba(9, 6, 6, 1) 100%);
+        color: $white;
+        display: flex;
+        justify-content: space-between;
+
+        & button {
+            color: $white;
+            text-decoration: underline;
+            font-style: italic;
+            width: 100%;
+            text-align: end;
+        }
     }
 
     &__body {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(100vh - 122px);
+        height: calc(100vh - 100px);
     }
 }
