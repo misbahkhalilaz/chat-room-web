@@ -24,4 +24,10 @@ module.exports = () => ({
     publicRuntimeConfig: {
         env: {local, dev, stage, prod},
     },
+    rewrites: async () => [
+        {
+          source: '/request',
+          destination: process.env.BASE_API,
+        },
+      ]
 });
