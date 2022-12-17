@@ -1,0 +1,15 @@
+.home-page {
+    display: flex;
+    width: 100vw;
+    max-width: 1400px;
+    height: 100%;
+    padding: 40px;
+
+    & > div:first-child {
+        width: 40%;
+    }
+
+    & > div:last-child {
+        width: 60%;
+    }
+}

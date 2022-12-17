@@ -1,0 +1,33 @@
+.users-list {
+    border-right: 2px solid $black;
+
+    & > h1 {
+        margin-left: 20px;
+    }
+
+    &__listing {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        height: calc(100% - 62px);
+        overflow: auto;
+        overflow-x: hidden;
+        padding: 20px;
+    }
+
+    &__button {
+        width: 100%;
+        text-align: start;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: $cardShadow;
+
+        &--selected {
+            background: rgb(0, 0, 0);
+            background: linear-gradient(333deg, rgba(0, 0, 0, 1) 0%, rgba(123, 128, 119, 1) 33%, rgba(9, 6, 6, 1) 100%);
+            color: $white;
+        }
+    }
+}

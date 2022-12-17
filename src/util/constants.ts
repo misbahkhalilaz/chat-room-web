@@ -19,4 +19,5 @@ export const API_ROUTES = {
     register: '/auth/register',
     login: '/auth/login',
     user: '/user',
+    users: '/user/all',
 };
