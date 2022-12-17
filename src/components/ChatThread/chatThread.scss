@@ -1,0 +1,38 @@
+.chat-thread {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > h3 {
+        text-align: end;
+    }
+
+    &__listing {
+        flex-grow: 1;
+    }
+
+    & > form {
+        display: flex;
+        gap: 10px;
+
+        input {
+            flex-grow: 1;
+            min-height: 56px;
+            font-size: 16px;
+            color: $lunarGreen;
+            padding: 0px 10px;
+            outline: auto;
+            border-radius: 10px;
+            outline-color: $black;
+        }
+
+        button {
+            padding: 0 25px;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            font-size: 18px;
+        }
+    }
+}
