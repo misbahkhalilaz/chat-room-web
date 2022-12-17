@@ -14,3 +14,8 @@ export const ResponseTypes = {
     SUCCESS: 'SUCCESS',
     FAILURE: 'FAILURE',
 };
+
+export const API_ROUTES = {
+    register: '/api/register',
+    login: '/api/login',
+};
