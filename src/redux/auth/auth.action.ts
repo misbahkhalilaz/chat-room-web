@@ -20,6 +20,8 @@ export const registerAction = createAsyncThunk<
     if (response.success) {
         signIn('credentials', {
             token: response.success.data.token,
+            redirect: true,
+            callbackUrl: '/',
         });
     }
 
@@ -47,6 +49,8 @@ export const loginAction = createAsyncThunk<
     if (response.success) {
         signIn('credentials', {
             token: response.success.data.token,
+            redirect: true,
+            callbackUrl: '/',
         });
     }
 

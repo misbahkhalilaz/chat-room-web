@@ -1,9 +1,15 @@
 .app-container {
-    padding-top: size(18);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    @include max(sm) {
-        padding-top: size(12);
+    &__header {
+        padding: 40px;
+        background: rgb(4, 47, 31);background: rgb(0,0,0);
+        background: linear-gradient(333deg, rgba(0,0,0,1) 0%, rgba(161,166,156,1) 55%, rgba(9,6,6,1) 100%);
+        color: white;
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 122px);
     }
 }

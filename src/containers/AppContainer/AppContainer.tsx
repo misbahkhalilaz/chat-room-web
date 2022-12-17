@@ -9,7 +9,10 @@ export const AppContainer: React.FC = ({children}) => {
 
     return (
         <>
-            {children}
+            <header className="app-container__header">
+                <h1>ChatRoom</h1>
+            </header>
+            <main className="app-container__body">{children}</main>
             {(routeLoading || asyncActionLoading) && <Loader />}
         </>
     );
