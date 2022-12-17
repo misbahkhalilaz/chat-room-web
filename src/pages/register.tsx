@@ -4,6 +4,7 @@ import {useForm} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import {InputField} from 'src/components/InputField/InputField';
 import {registerAction} from 'src/redux/auth/auth.action';
+import Link from 'next/link';
 
 const RegisterPage: NextPage = () => {
     const dispatch = useDispatch();
@@ -35,25 +36,23 @@ const RegisterPage: NextPage = () => {
             <InputField
                 {...register('lastName', {required: requiredRule})}
                 label="Last Name"
-                autoFocus={true}
                 isError={!!errors.lastName}
                 message={errors.lastName?.message}
             />
             <InputField
                 {...register('userName', {required: requiredRule})}
                 label="Username"
-                autoFocus={true}
                 isError={!!errors.userName}
                 message={errors.userName?.message}
             />
             <InputField
                 {...register('password', {required: requiredRule})}
                 label="Password"
-                autoFocus={true}
                 isError={!!errors.password}
                 message={errors.password?.message}
             />
             <button type="submit">Register</button>
+            <Link href="/login">Login?</Link>
         </form>
     );
 };

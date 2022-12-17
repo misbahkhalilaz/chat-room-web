@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    t?: string;
-}
-
-export const LocalizedExternalLink: React.FC<IProps> = ({href, children, ...props}) => {
+export const ExternalLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({href, children, ...props}) => {
     return (
         <a href={href || '#!'} target="_blank" rel="noreferrer" {...props}>
             {children}

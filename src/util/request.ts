@@ -45,7 +45,7 @@ const request = async <T, R = AnyObject>(
         return {
             error: {
                 code: 500,
-                message: 'RESPONSE.DEFAULT.ERROR',
+                message: 'Something went wrong.',
                 data: {},
             },
         } as ApiResponse<R>;
