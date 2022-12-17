@@ -16,6 +16,7 @@ export const ResponseTypes = {
 };
 
 export const API_ROUTES = {
-    register: '/api/register',
-    login: '/api/login',
+    register: '/auth/register',
+    login: '/auth/login',
+    user: '/user',
 };

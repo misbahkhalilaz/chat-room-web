@@ -4,7 +4,7 @@ import {InputFieldProps} from 'src/types/input';
 
 export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     ({label, message, isError = false, disableLabelTransition = true, ...fieldProps}, ref) => {
-        const inputId = Math.random().toString();
+        const inputId = `input-${fieldProps.name}`;
 
         return (
             <div

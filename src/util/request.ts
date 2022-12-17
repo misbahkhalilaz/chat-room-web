@@ -2,11 +2,13 @@ import axios, {AxiosResponse, Method} from 'axios';
 import {getSession} from 'next-auth/client';
 import {GetServerSidePropsContext} from 'next';
 import {COMMON_HEADERS} from 'src/util/constants';
+import {runTimeSharedConfig} from './common';
 
 const createOptions = async <T>(
     method: Method = 'GET',
     passToken: boolean,
     data?: T,
+    token?: string,
     context?: GetServerSidePropsContext,
 ) => {
     const options: ApiRequest<T> = {
@@ -15,10 +17,15 @@ const createOptions = async <T>(
     };
 
     if (passToken) {
-        const session = await getSession(context);
+        let accessToken = token;
 
-        if (session?.accessToken) {
-            options.headers!.token = `Bearer ${session.accessToken}`;
+        if (!accessToken) {
+            const session = await getSession(context);
+            accessToken = session?.accessToken;
+        }
+
+        if (accessToken) {
+            options.headers!.authorization = `Bearer ${accessToken}`;
         }
     }
 
@@ -32,11 +39,12 @@ const request = async <T, R = AnyObject>(
     context?: GetServerSidePropsContext,
 ): Promise<ApiResponse<R>> => {
     try {
-        const {method, data, path, passToken = true} = args;
-        const options = await createOptions(method, passToken, data, context);
+        const {method, data, path, passToken = true, token} = args;
+        const options = await createOptions(method, passToken, data, token, context);
         const response: AxiosResponse<ApiResponse> = await axios({
             ...options,
-            url: `/request${path}`,
+            baseURL: runTimeSharedConfig().BASE_API,
+            url: path,
         });
 
         return response.data as ApiResponse<R>;

@@ -48,6 +48,7 @@ const RegisterPage: NextPage = () => {
             <InputField
                 {...register('password', {required: requiredRule})}
                 label="Password"
+                type="password"
                 isError={!!errors.password}
                 message={errors.password?.message}
             />
