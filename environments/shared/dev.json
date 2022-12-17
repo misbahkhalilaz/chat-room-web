@@ -1,4 +1,5 @@
 {
     "APP_ENV": "dev",
-    "APP_URL": ""
+    "APP_URL": "http://localhost:3000",
+    "BASE_API": "http://localhost:4000"
 }
