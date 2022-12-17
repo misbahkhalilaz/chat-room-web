@@ -12,15 +12,20 @@ if (typeof window !== 'undefined') {
 
 const MyApp = ({Component, pageProps}: AppProps) => {
     return (
-        <>
+            <Provider store={store}>
             <Head>
-                <link rel="icon" type="image/ico" sizes="32x32" href={`/static/images/favicon-${favIconType}.ico`} />
+                    <link
+                        rel="icon"
+                        type="image/ico"
+                        sizes="32x32"
+                        href={`/static/images/favicon-${favIconType}.ico`}
+                    />
             </Head>
             <ToastContainer />
             <AppContainer>
                 <Component {...pageProps} />
             </AppContainer>
-        </>
+            </Provider>
     );
 };
 
