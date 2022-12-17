@@ -53,10 +53,9 @@ declare global {
         path?: string;
         data?: T;
         headers?: headers;
-        isServer?: boolean;
         token?: string;
         params?: AnyObject;
-        locale?: string;
+        passToken?: boolean;
     }
 
     interface ServerSideRequest extends IncomingMessage {

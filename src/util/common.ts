@@ -25,30 +25,7 @@ export const runTimeSharedConfig = () => {
     return config.publicRuntimeConfig.env[runTimeServerConfig().APP_ENV!] || {};
 };
 
-export const getServerSideRequest = async <T = AnyObject>(args: ServerSideApiRequest<T>) => {
-    const {path, method, data, params} = args;
-    const request: ApiRequest<T> = {
-        path: `${path}`,
-        method,
-        isServer: true,
-    };
-    if (params) request.params = params;
-    if (data) request.data = data;
-    return request;
-};
-
-export const urlConverter = (type: 'email' | 'phoneNumber', url: string) => {
-    switch (type) {
-        case 'email':
-            return `mailto:${url}`;
-        case 'phoneNumber':
-            return `tel:${url}`;
-        default:
-            return `${url}`;
-    }
-};
-
-export const getUserName = (firstName: string, lastName: string | null) => {
+export const getFullName = (firstName: string, lastName: string | null) => {
     if (lastName) return `${firstName} ${lastName}`;
     return firstName;
 };
