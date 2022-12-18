@@ -23,6 +23,8 @@
         border-radius: 10px;
         padding: 20px;
         box-shadow: $cardShadow;
+        display: flex;
+        justify-content: space-between;
 
         &--selected {
             background: rgb(0, 0, 0);

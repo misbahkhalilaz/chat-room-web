@@ -6,9 +6,10 @@ interface IProps {
     users: UserData[];
     selectedUser: UserData;
     setSelectedUser: React.Dispatch<React.SetStateAction<UserData>>;
+    onlineUsers: string[];
 }
 
-export const UsersList: FC<IProps> = ({users, selectedUser, setSelectedUser}) => {
+export const UsersList: FC<IProps> = ({users, selectedUser, setSelectedUser, onlineUsers}) => {
     return (
         <div className="users-list">
             <h1>People</h1>
@@ -21,6 +22,7 @@ export const UsersList: FC<IProps> = ({users, selectedUser, setSelectedUser}) =>
                         })}
                         onClick={() => setSelectedUser(user)}>
                         <span>{`${getFullName(user.firstName, user.lastName)} (${user.userName})`}</span>
+                        {onlineUsers.includes(user.userName) && <span>Online</span>}
                     </button>
                 ))}
             </div>

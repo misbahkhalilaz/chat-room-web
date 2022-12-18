@@ -16,6 +16,7 @@ interface IProps {
 }
 
 const HomePage: NextPage<IProps> = ({users, session, messages}) => {
+    const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
     const [selectedUser, setSelectedUser] = useState<UserData>(users[0]);
     const [selectedChat, setSelectedChat] = useState(messages);
     const socket = useSocket(session.accessToken!);
@@ -29,6 +30,10 @@ const HomePage: NextPage<IProps> = ({users, session, messages}) => {
             setSelectedChat(messagesResponse.success.data.messages);
         }
     };
+
+    useEffect(() => {
+        setOnlineUsers(users.filter((user) => user.isOnline).map((user) => user.userName));
+    }, [users]);
 
     useEffect(() => {
         setSelectedChat([]);
@@ -50,15 +55,40 @@ const HomePage: NextPage<IProps> = ({users, session, messages}) => {
             setSelectedUser(users.find((user) => user.userName === userName)!);
         });
 
+        socket?.on('online-user', (userName) => {
+            setOnlineUsers((prevVal) => {
+                if (!prevVal.includes(userName)) {
+                    return [...prevVal, userName];
+                }
+                return prevVal;
+            });
+        });
+
+        socket?.on('offline-user', (userName) => {
+            setOnlineUsers((prevVal) => {
+                if (prevVal.includes(userName)) {
+                    return prevVal.filter((val) => val !== userName);
+                }
+                return prevVal;
+            });
+        });
+
         // remove listner on unmount
         return () => {
             socket?.off('message');
+            socket?.off('online-user');
+            socket?.off('offline-user');
         };
     }, [socket]);
 
     return (
         <div className="home-page">
-            <UsersList users={users} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
+            <UsersList
+                users={users}
+                selectedUser={selectedUser}
+                setSelectedUser={setSelectedUser}
+                onlineUsers={onlineUsers}
+            />
             <ChatThread user={selectedUser} handleSendMessage={handleSendMessage} selectedChat={selectedChat} />
         </div>
     );
