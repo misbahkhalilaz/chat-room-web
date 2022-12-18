@@ -13,7 +13,7 @@ export const UsersList: FC<IProps> = ({users, selectedUser, setSelectedUser}) =>
         <div className="users-list">
             <h1>People</h1>
             <div className="users-list__listing">
-                {users.map((user, idx) => (
+                {users?.map((user, idx) => (
                     <button
                         key={idx}
                         className={classNames('users-list__button', {
