@@ -37,8 +37,8 @@ const HomePage: NextPage<IProps> = ({users, session, messages}) => {
 
     useEffect(() => {
         setSelectedChat([]);
-        updateChat(selectedUser.userName);
-    }, [selectedUser.userName]);
+        updateChat(selectedUser?.userName);
+    }, [selectedUser?.userName]);
 
     const handleSendMessage = (message: MessagePayload) => {
         socket?.emit('send-message', message);
@@ -114,7 +114,7 @@ export const getServerSideProps: AppServerSideProps<IProps> = async (context) =>
         users = usersResponse.success.data.users;
 
         const messageResponse = await request<null, {messages: Message[]}>(
-            {path: `${API_ROUTES.user}/messages/${users[0].userName}`},
+            {path: `${API_ROUTES.user}/messages/${users[0]?.userName}`},
             context,
         );
 
