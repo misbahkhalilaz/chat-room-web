@@ -11,6 +11,11 @@ This is a basic realtime chat application with following features:
 # Resources:  
 > Backend: https://github.com/misbahkhalilaz/chat-room-api. 
 
+# Test Users:  
+> username: `alice`, password: `abc123`  
+> username: `bob`, password: `abc123`  
+> username: `tom`, password: `abc123`  
+
 # Tech Stack:  
 > NextJS.  
 > Socket.IO. 
